@@ -1,6 +1,7 @@
 import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
+import java.awt.Color;
 
 public class FractalPlane{
 
@@ -18,32 +19,33 @@ public class FractalPlane{
 
   }
 
-public int getSize(){
-  return this.size;
-}
+  public int getSize(){
+    return this.size;
+  }
 
-public int setSize(int newSize){
+  public int setSize(int newSize){
 
-  plane = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_RGB);
-  return newSize;
+    //replaces plane with new BufferedImage object of desired size
+    plane = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_RGB);
+    return newSize;
 
-}
+  }
 
-public String setName(String newName){
-  this.name = newName;
-  return newName;
-}
+  public String setName(String newName){
+    this.name = newName;
+    return newName;
+  }
 
-public String getName(){
-  return this.name;
-}
-
-public void draw();
+  public String getName(){
+    return this.name;
+  }
 
   public void setColor(Color c){
+    //iterates across every pixel
     for(int x = 0; x < size; x++){
       for(int y = 0; y < size; y++){
 
+      //sets every pixel of plane to desired color
       plane.setRGB(x, y, c);
       }
     }
