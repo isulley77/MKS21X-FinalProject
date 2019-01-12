@@ -1,21 +1,32 @@
+/*
 import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
+*/
 import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class FractalPlane{
 
-  private int size;
-  private String name;
+  private int height;
+  private int width;
+  private boolean[][] values;
+  private String type;
   private Color backgroundColor;
+  private Color fractalColor;
+  private BufferedImage imagePlane;
+  private int iterations;
 
 
-  FractalPlane(int size, String name){
+  FractalPlane(){
 
-    this.name = null;
+    this.height = height;
+    this.width = width;
+    this.type = type;
+    this.backgroundColor = null;
+    this.fractalColor = null;
+    
 
-    BufferedImage plane = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
 
 
   }
@@ -26,22 +37,27 @@ public class FractalPlane{
 
   public int setSize(int newSize){
 
-    //replaces plane with new BufferedImage object of desired size
-    plane = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_ARGB);
+    size = newSize;
     return newSize;
 
   }
-
+    
+/*
   public String setName(String newName){
     this.name = newName;
     return newName;
   }
 
+
   public String getName(){
     return this.name;
   }
-
-  public void setColor(Color c){
+*/
+ 
+  public void setBackgroundColor(Color c){
+    
+    
+    
     /*iterates across every pixel
     for(int x = 0; x < size; x++){
       for(int y = 0; y < size; y++){
@@ -51,7 +67,10 @@ public class FractalPlane{
       }
     }
     */
+    
+    /*
     Graphics2D backgroundColor = plane.createGraphics();
-    backgroundColor.setBackground(c);
+    backgroundColor.setBackground(Color.WHITE);
+    */
   }
 }
