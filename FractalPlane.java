@@ -1,30 +1,33 @@
-import java.util.*;
-import java.awt.*;
+import java.io.*;
+import java.awt.image.*;
+import javax.imageio.*;
 
 public class FractalPlane{
 
-  private int height = 0;
-  private int width = 0;
-  private Color backgroundColor = null;
+  private int size;
+  private String name;
+  private Color backgroundColor;
 
 
-  public int setHeight(int newHeight){
+  FractalPlane(int size, String name){
 
-      height = newHeight;
-      return newHeight;
+    this.name = null;
+
+    BufferedImage plane = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
+
+
   }
 
-  public boolean setWidth(int newWidth){
+public int getSize();
 
-    width = newWidth;
-    return true;
-  }
+public int setSize();
 
-  public boolean setColor(Color c){
+public String setName();
 
-    backgroundColor = c;
-    return true;
+public String getName();
 
-  }
+public void draw();
+
+public void setColor();
 
 }
