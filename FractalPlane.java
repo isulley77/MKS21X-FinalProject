@@ -2,6 +2,7 @@ import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 public class FractalPlane{
 
@@ -26,7 +27,7 @@ public class FractalPlane{
   public int setSize(int newSize){
 
     //replaces plane with new BufferedImage object of desired size
-    plane = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_RGB);
+    plane = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_ARGB);
     return newSize;
 
   }
@@ -41,7 +42,7 @@ public class FractalPlane{
   }
 
   public void setColor(Color c){
-    //iterates across every pixel
+    /*iterates across every pixel
     for(int x = 0; x < size; x++){
       for(int y = 0; y < size; y++){
 
@@ -49,5 +50,8 @@ public class FractalPlane{
       plane.setRGB(x, y, c);
       }
     }
+    */
+    Graphics2D backgroundColor = plane.createGraphics();
+    backgroundColor.setBackground(c);
   }
 }
