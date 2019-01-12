@@ -22,7 +22,12 @@ public int getSize(){
   return this.size;
 }
 
-public int setSize();
+public int setSize(int newSize){
+
+  plane = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_RGB);
+  return newSize;
+
+}
 
 public String setName(String newName){
   this.name = newName;
