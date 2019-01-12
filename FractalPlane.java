@@ -28,6 +28,12 @@ public String getName();
 
 public void draw();
 
-public void setColor();
+  public void setColor(Color c){
+    for(int x = 0; x < size; x++){
+      for(int y = 0; y < size; y++){
 
+      plane.setRGB(x, y, c);
+      }
+    }
+  }
 }
