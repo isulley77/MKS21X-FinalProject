@@ -22,7 +22,10 @@ public int getSize();
 
 public int setSize();
 
-public String setName();
+public String setName(String newName){
+  this.name = newName;
+  return newName;
+}
 
 public String getName();
 
