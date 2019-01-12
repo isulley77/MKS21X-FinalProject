@@ -27,7 +27,9 @@ public String setName(String newName){
   return newName;
 }
 
-public String getName();
+public String getName(){
+  return this.name;
+}
 
 public void draw();
 
