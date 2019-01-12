@@ -18,7 +18,9 @@ public class FractalPlane{
 
   }
 
-public int getSize();
+public int getSize(){
+  return this.size;
+}
 
 public int setSize();
 
