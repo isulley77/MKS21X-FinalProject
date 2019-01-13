@@ -101,6 +101,9 @@ public class FractalPlane{
   }
   */
   
+  
+   public void paint(Graphics drawing){}
+  
  
     private void drawKoch(int x1, int y1, int x5, int y5, Graphics drawing, int iterations){
           int changeX;
