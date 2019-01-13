@@ -8,7 +8,7 @@ import java.lang.Math;
 public class FractalPlane{
 
   private int HEIGHT = 480;
-  private int WIDTH = 480;
+  private int width = 480;
  // private boolean[][] values;
  // private String type;
   private Color backgroundColor;
@@ -21,17 +21,21 @@ public class FractalPlane{
 
   public FractalPlane(){
 
-    //this.height = HEIGHT;
+    //this.HEIGHT = HEIGHT;
     //this.width = WIDTH;
     //this.type = type;
     this.backgroundColor = Color.black;
     this.fractalColor = Color.white;
+    iterations = 10;
     
-    imagePlane = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+    imagePlane = new BufferedImage(width, HEIGHT, BufferedImage.TYPE_INT_RGB);
     drawing = imagePlane.getGraphics();
-    drawKoch(0, HEIGHT/2 ,WIDTH, HEIGHT/2, drawing, 3);
+    paint(drawing);
+    //drawKoch(0, HEIGHT/2 ,WIDTH, HEIGHT/2, drawing, iterations);
     save("mySnowflake");
   }
+  
+  /*
   
   public void drawKoch(double x1, double y1, double x2, double y2, Graphics drawing, int iterations){
     
@@ -41,11 +45,12 @@ public class FractalPlane{
     
     if(iterations == 0){
     
-        return;
+        //return;
     }
     
     else if(iterations == 1){
     
+        
         drawing.drawLine( (int)x1, (int)y2, (int)x2, (int)y2);
         
     
@@ -94,6 +99,43 @@ public class FractalPlane{
     
   
   }
+  */
+  
+ 
+    private void drawKoch(int x1, int y1, int x5, int y5, Graphics drawing, int iterations){
+          int changeX;
+          int changeY; 
+          int x2;
+          int y2;
+          int x3;
+          int y3;
+          int x4;
+          int y4;
+  
+          if (iterations == 0){
+              drawing.drawLine(x1, y1, x5, y5);
+          }
+          else{
+                changeX = x5 - x1;
+                changeY = y5 - y1;
+  
+                x2 = x1 + changeX / 3;
+                y2 = y1 + changeY / 3;
+  
+                x3 = (int) (0.5 * (x1+x5) + Math.sqrt(3) * (y1-y5)/6);
+                y3 = (int) (0.5 * (y1+y5) + Math.sqrt(3) * (x5-x1)/6);
+  
+                x4 = x1 + 2 * deltaX /3;
+                y4 = y1 + 2 * deltaY /3;
+  
+                drawKoch(x1, y1, x2, y2, drawing, iterations - 1);
+                drawKoch(x2, y2, x3, y3, drawing, iterations - 1);
+                drawKoch(x3, y3, x4, y4, drawing, iterations - 1);
+                drawKoch(x4, y4, x5, y5, drawing, iterations - 1);
+            }
+        }   
+
+
   
   /*
 
@@ -110,6 +152,7 @@ public class FractalPlane{
   }
   */
   
+  //sets filename
   String setName(String newName){
     this.name = newName;
     return newName;
@@ -120,11 +163,11 @@ public class FractalPlane{
     return this.name;
   }
 
- 
+ //sets BufferedImage background color
   public void setBackgroundColor(Color c){
     
     drawing.setColor(c);
-    drawing.fillRect(0, 0, WIDTH, HEIGHT);
+    drawing.fillRect(0, 0, width, HEIGHT);
     
     
     
@@ -144,6 +187,8 @@ public class FractalPlane{
     */
   }
   
+  
+  //saves image to .png file 
   public void save(String name){
     try{
     
@@ -156,10 +201,10 @@ public class FractalPlane{
   }
 
 
-
- public static void main(String[] args){
+//main function, creates new FractalPlane
+    public static void main(String[] args){
  
- new FractalPlane();
+        new FractalPlane();
  
- }
+    }
  }
