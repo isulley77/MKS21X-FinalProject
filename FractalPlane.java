@@ -8,17 +8,18 @@ import java.awt.Graphics2D;
 
 public class FractalPlane{
 
-  private int height;
-  private int width;
-  private boolean[][] values;
-  private String type;
+  private int HEIGHT = 480;
+  private int WIDTH = 480;
+ // private boolean[][] values;
+ // private String type;
   private Color backgroundColor;
   private Color fractalColor;
   private BufferedImage imagePlane;
+  private Graphics2D drawing;
   private int iterations;
 
 
-  FractalPlane(){
+  public FractalPlane(){
 
     this.height = height;
     this.width = width;
@@ -26,14 +27,19 @@ public class FractalPlane{
     this.backgroundColor = null;
     this.fractalColor = null;
     
-
+    imagePlane = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+    
+    
 
 
   }
+  
+  /*
 
   public int getSize(){
     return this.size;
   }
+
 
   public int setSize(int newSize){
 
@@ -41,7 +47,8 @@ public class FractalPlane{
     return newSize;
 
   }
-    
+  */
+  
 /*
   public String setName(String newName){
     this.name = newName;
