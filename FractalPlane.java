@@ -102,7 +102,17 @@ public class FractalPlane{
   */
   
   
-   public void paint(Graphics drawing){}
+   public void paint(Graphics drawing){
+        
+        HEIGHT = HEIGHT - HEIGHT/4;
+        int origin = width/2 - HEIGHT/2;
+        
+        drawKoch(origin + 20, HEIGHT - 20,   origin + HEIGHT - 20, HEIGHT - 20, drawing, iterations);
+        drawKoch(origin + HEIGHT - 20,HEIGHT - 20, origin + HEIGHT/2,20, drawing, iterations);
+        drawKoch(origin + HEIGHT/2, 20, origin + 20, HEIGHT - 20, drawing, iterations);
+   
+   
+   }
   
  
     private void drawKoch(int x1, int y1, int x5, int y5, Graphics drawing, int iterations){
