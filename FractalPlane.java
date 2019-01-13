@@ -35,6 +35,14 @@ public class FractalPlane{
 
   }
   
+  public void drawKoch(int x1, int y1, int x2, int y2, Graphics2D drawing, int iterations){
+    
+    drawing.setColor(fractalColor);
+    
+    
+  
+  }
+  
   /*
 
   public int getSize(){
