@@ -28,6 +28,7 @@ public class FractalPlane{
     this.fractalColor = null;
     
     imagePlane = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+    drawing = imagePlane.getGraphics();
     
     
 
@@ -62,6 +63,9 @@ public class FractalPlane{
 */
  
   public void setBackgroundColor(Color c){
+    
+    drawing.setColor(c);
+    drawing.fillRect(0, 0, WIDTH, HEIGHT);
     
     
     
