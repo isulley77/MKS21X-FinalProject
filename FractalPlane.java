@@ -1,8 +1,6 @@
-/*
 import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
-*/
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -17,6 +15,7 @@ public class FractalPlane{
   private BufferedImage imagePlane;
   private Graphics2D drawing;
   private int iterations;
+  private String name;
 
 
   public FractalPlane(){
@@ -58,7 +57,6 @@ public class FractalPlane{
   }
   */
   
-/*
   public String setName(String newName){
     this.name = newName;
     return newName;
@@ -68,7 +66,7 @@ public class FractalPlane{
   public String getName(){
     return this.name;
   }
-*/
+
  
   public void setBackgroundColor(Color c){
     
@@ -92,4 +90,21 @@ public class FractalPlane{
     backgroundColor.setBackground(Color.WHITE);
     */
   }
+  
+  public void save(){
+    try{
+    
+        File finalImage = new File(name + ".png");
+        ImageIO.write(imagePlane, "png", finalImage);
+        
+        }catch(Exception e){
+            return;
+            }
+  }
 }
+
+
+
+
+
+
