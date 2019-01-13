@@ -24,22 +24,19 @@ public class FractalPlane{
     //this.height = HEIGHT;
     //this.width = WIDTH;
     //this.type = type;
-    this.backgroundColor = null;
-    this.fractalColor = null;
+    this.backgroundColor = Color.black;
+    this.fractalColor = Color.white;
     
     imagePlane = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     drawing = imagePlane.getGraphics();
-    
-    
-
-
+    drawKoch(0, HEIGHT/2 ,WIDTH, HEIGHT/2, drawing, 3);
+    save("mySnowflake");
   }
   
   public void drawKoch(double x1, double y1, double x2, double y2, Graphics drawing, int iterations){
     
     drawing.setColor(fractalColor);
-    double slope;
-    double thirdsegment;
+    
     
     
     if(iterations == 0){
@@ -60,8 +57,8 @@ public class FractalPlane{
         
         if(Math.abs(x2-x1) != 0){
             
-            slope = (y2 - y1) / (x2 - x1);
-            thirdsegment = (x2 - x1) / 3;
+            double slope = (y2 - y1) / (x2 - x1);
+            double thirdsegment = (x2 - x1) / 3;
             
             double newX1 = x1 + thirdsegment; 
             double newY1 = y1 + thirdsegment * slope;
@@ -71,8 +68,24 @@ public class FractalPlane{
             drawKoch(x1, y1, newX1, newY1, drawing, iterations);
             drawKoch(newX2, newY2, x2, y2, drawing, iterations);
             drawKoch(newX1, newY1, (newX1 + newX2) / 2 + (newY2 - newY1) / 2 * Math.sqrt(3), (newY2 + newY1) / 2 + (newX2 - newX1) / 2 * Math.sqrt(3), drawing, iterations);
+            drawKoch((newX2 + newX1) / 2 + (newY2 - newY1) / 2 * Math.sqrt(3), (newY2 + newY1) / 2 - (newX2 - newX1) / 2 * Math.sqrt(3), newX2, newY2, drawing, iterations);
             
         }
+        
+            else{
+            
+            double thirdsegment = (y2 - y1) / 3;
+            double newY1 = y1 + thirdsegment;
+            double newY2 = y1 + 2 * thirdsegment;
+            
+            drawKoch(x1, y1, x1, y1 + thirdsegment, drawing, iterations);
+            drawKoch(x1, y1 + 2 * thirdsegment, x2, y2, drawing, iterations);
+            drawKoch(x1, newY1, x1 + (newY2 - newY1) / 2 * Math.sqrt(3), (newY2 + newY1) / 2, drawing, iterations);
+            drawKoch(x1 + (newY2 - newY1) / 2 * Math.sqrt(3), (newY2 + newY1) / 2, x2, newY2, drawing, iterations);
+        
+        
+        
+            }
     
     
     }
@@ -97,7 +110,7 @@ public class FractalPlane{
   }
   */
   
-  public String setName(String newName){
+  String setName(String newName){
     this.name = newName;
     return newName;
   }
@@ -131,7 +144,7 @@ public class FractalPlane{
     */
   }
   
-  public void save(){
+  public void save(String name){
     try{
     
         File finalImage = new File(name + ".png");
@@ -141,10 +154,12 @@ public class FractalPlane{
             return;
             }
   }
-}
 
 
 
-
-
-
+ public static void main(String[] args){
+ 
+ new FractalPlane();
+ 
+ }
+ }
