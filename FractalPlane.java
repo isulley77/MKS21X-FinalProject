@@ -138,8 +138,8 @@ public class FractalPlane{
                 x3 = (int) (0.5 * (x1+x5) + Math.sqrt(3) * (y1-y5)/6);
                 y3 = (int) (0.5 * (y1+y5) + Math.sqrt(3) * (x5-x1)/6);
   
-                x4 = x1 + 2 * deltaX /3;
-                y4 = y1 + 2 * deltaY /3;
+                x4 = x1 + 2 * changeX /3;
+                y4 = y1 + 2 * changeY /3;
   
                 drawKoch(x1, y1, x2, y2, drawing, iterations - 1);
                 drawKoch(x2, y2, x3, y3, drawing, iterations - 1);
