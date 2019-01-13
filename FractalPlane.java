@@ -3,6 +3,7 @@ import java.awt.image.*;
 import javax.imageio.*;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.lang.Math;
 
 public class FractalPlane{
 
@@ -34,9 +35,37 @@ public class FractalPlane{
 
   }
   
-  public void drawKoch(int x1, int y1, int x2, int y2, Graphics2D drawing, int iterations){
+  public void drawKoch(double x1, double y1, double x2, double y2, Graphics2D drawing, int iterations){
     
     drawing.setColor(fractalColor);
+    int slope;
+    int thirdsegment;
+    
+    
+    if(iterations == 0){
+    
+        return;
+    }
+    
+    else if(interations == 1){
+    
+        g.drawLine( x1, y2, x2, y2);
+        
+    
+    }
+    
+    else{
+    
+        if(Math.abs(x2-x1) != 0){
+            
+            slope = (y2 - y1) / (x2 - x1);
+            third = (x2 - x1) / 3;
+        
+        }
+    
+    
+    }
+        
     
     
   
