@@ -2,7 +2,7 @@ import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
 import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.lang.Math;
 
 public class FractalPlane{
@@ -14,16 +14,16 @@ public class FractalPlane{
   private Color backgroundColor;
   private Color fractalColor;
   private BufferedImage imagePlane;
-  private Graphics2D drawing;
+  private Graphics drawing;
   private int iterations;
   private String name;
 
 
   public FractalPlane(){
 
-    this.height = height;
-    this.width = width;
-    this.type = type;
+    //this.height = HEIGHT;
+    //this.width = WIDTH;
+    //this.type = type;
     this.backgroundColor = null;
     this.fractalColor = null;
     
@@ -35,11 +35,11 @@ public class FractalPlane{
 
   }
   
-  public void drawKoch(double x1, double y1, double x2, double y2, Graphics2D drawing, int iterations){
+  public void drawKoch(double x1, double y1, double x2, double y2, Graphics drawing, int iterations){
     
     drawing.setColor(fractalColor);
-    int slope;
-    int thirdsegment;
+    double slope;
+    double thirdsegment;
     
     
     if(iterations == 0){
@@ -47,15 +47,17 @@ public class FractalPlane{
         return;
     }
     
-    else if(interations == 1){
+    else if(iterations == 1){
     
-        g.drawLine( x1, y2, x2, y2);
+        drawing.drawLine( (int)x1, (int)y2, (int)x2, (int)y2);
         
     
     }
     
     else{
     
+        iterations--;
+        
         if(Math.abs(x2-x1) != 0){
             
             slope = (y2 - y1) / (x2 - x1);
@@ -65,7 +67,11 @@ public class FractalPlane{
             double newY1 = y1 + thirdsegment * slope;
             double newX2 = x2 + 2 * thirdsegment;
             double newY2 = y2 + 2 * thirdsegment * slope;
-        
+            
+            drawKoch(x1, y1, newX1, newY1, drawing, iterations);
+            drawKoch(newX2, newY2, x2, y2, drawing, iterations);
+            drawKoch(newX1, newY1, (newX1 + newX2) / 2 + (newY2 - newY1) / 2 * Math.sqrt(3), (newY2 + newY1) / 2 + (newX2 - newX1) / 2 * Math.sqrt(3), drawing, iterations);
+            
         }
     
     
