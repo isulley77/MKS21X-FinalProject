@@ -59,7 +59,12 @@ public class FractalPlane{
         if(Math.abs(x2-x1) != 0){
             
             slope = (y2 - y1) / (x2 - x1);
-            third = (x2 - x1) / 3;
+            thirdsegment = (x2 - x1) / 3;
+            
+            double newX1 = x1 + thirdsegment; 
+            double newY1 = y1 + thirdsegment * slope;
+            double newX2 = x2 + 2 * thirdsegment;
+            double newY2 = y2 + 2 * thirdsegment * slope;
         
         }
     
