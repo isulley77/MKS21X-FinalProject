@@ -29,9 +29,10 @@ public class FractalPlane{
     fractalColor = c.getColor(frcolor);
     iterations = iter;
     name = filename;
-    
     imagePlane = new BufferedImage(width, HEIGHT, BufferedImage.TYPE_INT_RGB);
     drawing = imagePlane.getGraphics();
+    drawing.setColor(backgroundColor);
+    drawing.fillRect(0,0,HEIGHT, width);
     paint(drawing);
     //drawKoch(0, HEIGHT/2 ,WIDTH, HEIGHT/2, drawing, iterations);
     save(name);
