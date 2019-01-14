@@ -18,21 +18,23 @@ public class FractalPlane{
   private int iterations;
   private String name;
 
-
-  public FractalPlane(){
+//FractalPlane Constructor
+  public FractalPlane(String filename, int iter, String bgcolor, String frcolor){
 
     //this.HEIGHT = HEIGHT;
     //this.width = WIDTH;
     //this.type = type;
-    this.backgroundColor = Color.black;
-    this.fractalColor = Color.white;
-    iterations = 10;
+     SelectColor c = new SelectColor();
+    backgroundColor = c.getColor(bgcolor);
+    fractalColor = c.getColor(frcolor);
+    iterations = iter;
+    name = filename;
     
     imagePlane = new BufferedImage(width, HEIGHT, BufferedImage.TYPE_INT_RGB);
     drawing = imagePlane.getGraphics();
     paint(drawing);
     //drawKoch(0, HEIGHT/2 ,WIDTH, HEIGHT/2, drawing, iterations);
-    save("mySnowflake");
+    save(name);
   }
   
   /*
@@ -126,6 +128,7 @@ public class FractalPlane{
           int y4;
   
           if (iterations == 0){
+              drawing.setColor(fractalColor);
               drawing.drawLine(x1, y1, x5, y5);
           }
           else{
@@ -165,7 +168,7 @@ public class FractalPlane{
   }
   */
   
-  //sets filename
+  /*sets filename
   String setName(String newName){
     this.name = newName;
     return newName;
@@ -176,6 +179,9 @@ public class FractalPlane{
     return this.name;
   }
 
+  */
+  
+  
  //sets BufferedImage background color
   public void setBackgroundColor(Color c){
     
@@ -214,10 +220,12 @@ public class FractalPlane{
   }
 
 
-//main function, creates new FractalPlane
+/* main function, creates new FractalPlane
     public static void main(String[] args){
  
-        new FractalPlane();
+        new FractalPlane(args[0], Integer.parseInt(args[1]));
  
     }
+    
+*/
  }
