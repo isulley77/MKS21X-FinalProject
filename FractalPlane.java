@@ -8,7 +8,7 @@ import java.lang.Math;
 public class FractalPlane{
 
   private int HEIGHT = 480;
-  private int width = 480;
+  private int WIDTH = 480;
  // private boolean[][] values;
  // private String type;
   private Color backgroundColor;
@@ -22,18 +22,21 @@ public class FractalPlane{
   public FractalPlane(String filename, int iter, String bgcolor, String frcolor){
 
     //this.HEIGHT = HEIGHT;
-    //this.width = WIDTH;
+    //this.WIDTH = WIDTH;
     //this.type = type;
      SelectColor c = new SelectColor();
     backgroundColor = c.getColor(bgcolor);
     fractalColor = c.getColor(frcolor);
     iterations = iter;
     name = filename;
-    imagePlane = new BufferedImage(width, HEIGHT, BufferedImage.TYPE_INT_RGB);
+    imagePlane = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     drawing = imagePlane.getGraphics();
     drawing.setColor(backgroundColor);
-    drawing.fillRect(0,0,HEIGHT, width);
-    paint(drawing);
+    drawing.fillRect(0,0,HEIGHT, WIDTH);
+    if(type.equals("kochsnowflake"){
+        new KochSnowflake(imagePlane, drawing, fractalColor, iterations);
+        }
+    //paint(drawing);
     //drawKoch(0, HEIGHT/2 ,WIDTH, HEIGHT/2, drawing, iterations);
     save(name);
   }
@@ -108,7 +111,7 @@ public class FractalPlane{
    public void paint(Graphics drawing){
         
         HEIGHT = HEIGHT - HEIGHT/4;
-        int origin = width/2 - HEIGHT/2;
+        int origin = WIDTH/2 - HEIGHT/2;
         
         drawKoch(origin + 20, HEIGHT - 20,   origin + HEIGHT - 20, HEIGHT - 20, drawing, iterations);
         drawKoch(origin + HEIGHT - 20,HEIGHT - 20, origin + HEIGHT/2,20, drawing, iterations);
@@ -187,7 +190,7 @@ public class FractalPlane{
   public void setBackgroundColor(Color c){
     
     drawing.setColor(c);
-    drawing.fillRect(0, 0, width, HEIGHT);
+    drawing.fillRect(0, 0, WIDTH, HEIGHT);
     
     
     
