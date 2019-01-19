@@ -10,7 +10,7 @@ public class FractalPlane{
   private int HEIGHT = 480;
   private int WIDTH = 480;
  // private boolean[][] values;
- // private String type;
+  private String type;
   private Color backgroundColor;
   private Color fractalColor;
   private BufferedImage imagePlane;
@@ -19,25 +19,40 @@ public class FractalPlane{
   private String name;
 
 //FractalPlane Constructor
-  public FractalPlane(String filename, int iter, String bgcolor, String frcolor){
+  public FractalPlane(String type, String filename, int iter, String bgcolor, String frcolor){
 
     //this.HEIGHT = HEIGHT;
     //this.WIDTH = WIDTH;
-    //this.type = type;
-     SelectColor c = new SelectColor();
-    backgroundColor = c.getColor(bgcolor);
-    fractalColor = c.getColor(frcolor);
-    iterations = iter;
-    name = filename;
+    
+    //set fractal type
+    type = type.toLowerCase();
+    
+    //set image colors
+    SelectColor c = new SelectColor(); //Select Color class instance
+    backgroundColor = c.getColor(bgcolor); //Set background color
+    fractalColor = c.getColor(frcolor); //Set fractal color
+    
+    iterations = iter; // Set num of iterations
+    name = filename; // Set image file name
+    
+    //Create BufferedImage for drawing
     imagePlane = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+    
+    //Get Graphics for BufferedImage
     drawing = imagePlane.getGraphics();
-    drawing.setColor(backgroundColor);
-    drawing.fillRect(0,0,HEIGHT, WIDTH);
+    
+    //Set Background Color
+    drawing.setColor(backgroundColor); //  Set drawing color
+    drawing.fillRect(0,0,HEIGHT, WIDTH); // Set color of background
     
     //Fractal type selection
+    
+    //KochSnowflake
     if(type.equals("kochsnowflake"){
         new KochSnowflake(imagePlane, drawing, fractalColor, iterations);
         }
+    
+    //Sierpinski Triangle
     if(type.equals("sierpinski"){
         new Sierpinski(imagePlane, drawing, fractalColor, iterations);
         }
@@ -45,6 +60,11 @@ public class FractalPlane{
         
     //paint(drawing);
     //drawKoch(0, HEIGHT/2 ,WIDTH, HEIGHT/2, drawing, iterations);
+    
+    
+    
+    
+    //Saves drawing to .png file with specified name
     save(name);
   }
   
