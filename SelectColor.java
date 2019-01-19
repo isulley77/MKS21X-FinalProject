@@ -25,9 +25,18 @@ static Color getColor(String color){
     if(color.equals("red")){
         myColor = Color.red;
     }
-    
+    if(color.equals("green")){
+        myColor = Color.green;
+    }
+    if(color.equals("orange")){
+        myColor = Color.orange;
+    }
+    if(color.equals("pink")){
+        myColor = Color.pink;
+    }
+
     return myColor;
-    
+
 
 }
 
