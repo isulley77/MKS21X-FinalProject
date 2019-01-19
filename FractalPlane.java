@@ -36,6 +36,9 @@ public class FractalPlane{
     if(type.equals("kochsnowflake"){
         new KochSnowflake(imagePlane, drawing, fractalColor, iterations);
         }
+    if(type.equals("sierpinski"){
+        new Sierpinski(imagePlane, drawing, fractalColor, iterations);
+        }
     //paint(drawing);
     //drawKoch(0, HEIGHT/2 ,WIDTH, HEIGHT/2, drawing, iterations);
     save(name);
