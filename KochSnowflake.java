@@ -1,3 +1,8 @@
+import java.awt.image.*;
+import java.awt.Graphics;
+import java.lang.Math;
+
+
 public class KochSnowflake{
 
     public KochSnowflake(BufferedImage imageplane, Color fractalColor, int iterations)
