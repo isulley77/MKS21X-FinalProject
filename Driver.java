@@ -55,6 +55,16 @@ public class Driver{
     System.out.print("Enter the filename for your fractal image:");
     fileName = userInput.next();
     
+    //KochSnowflake
+    if(type.equals("kochsnowflake")){
+        new Kochsnowflake(fileName, iterations, backgroundColor, fractalColor);
+    }
+    
+    Sierpinski Triangle
+    if(type.equals("sierpinski"){
+        new Sierpinski(fileName, iterations, backgroundColor, fractalColor);
+    }
+     
     
     
   }
