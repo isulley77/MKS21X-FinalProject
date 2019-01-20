@@ -18,6 +18,10 @@ public class KochSnowflake extends FractalPlane{
     
     
         super(filename, iter, bgcolor, frcolor);
+        
+        setColors(bgcolor, frcolor);
+        setBackgroundColor();
+    
         paint(drawing);
         //fractalColor = frColor;
         //iterations = iter;
