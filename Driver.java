@@ -34,26 +34,26 @@ public class Driver{
     
     
     // 1 Please Enter the fractal you would like to draw (KochSnowflake, Sierpinski)
-    System.out.print("Please Enter the fractal you would like to draw (KochSnowflake, Sierpinski)");
+    System.out.print("Please Enter the fractal you would like to draw (KochSnowflake, Sierpinski): ");
     type = userInput.next();
     type = type.toLowerCase();
     
     // 2 Please Enter the fractal color you would like
-    System.out.print("Enter the fractal color you would like:");
+    System.out.print("Enter the fractal color you would like: ");
     fractalColor = userInput.next();
     
     // 3 Please enter the background color you would like
-    System.out.print("Enter the background color you would like:");
+    System.out.print("Enter the background color you would like: ");
     backgroundColor = userInput.next();
     
     
     
     // 4 Please enter the number of iterations for your fractal
-    System.out.print("Enter the number of iterations you would like:");
+    System.out.print("Enter the number of iterations you would like: ");
     iterations = Integer.parseInt(userInput.next());
     
     // 5 Please enter a filename for your fractal image
-    System.out.print("Enter the filename for your fractal image:");
+    System.out.print("Enter the filename for your fractal image: ");
     fileName = userInput.next();
     
     //KochSnowflake
