@@ -29,7 +29,8 @@ String name;
     
     //set image colors
     
-    setColors(bgcolor, frcolor);
+    //setColors(bgcolor, frcolor);
+    //setBackgroundColor();
     
     /*
     SelectColor c = new SelectColor(); //Select Color class instance
