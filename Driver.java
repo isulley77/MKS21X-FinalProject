@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Driver{
 
-    String type;
-    String fileName;
-    String fractalColor;
-    String backgroundColor;
-    int iterations;
+    public static String type;
+    public static String fileName;
+    public static String fractalColor;
+    public static String backgroundColor;
+    public static int iterations;
 
   public static void main(String[] args){
 
@@ -36,6 +36,7 @@ public class Driver{
     // 1 Please Enter the fractal you would like to draw (KochSnowflake, Sierpinski)
     System.out.print("Please Enter the fractal you would like to draw (KochSnowflake, Sierpinski)");
     type = userInput.next();
+    type = type.toLowerCase();
     
     // 2 Please Enter the fractal color you would like
     System.out.print("Enter the fractal color you would like:");
@@ -49,7 +50,7 @@ public class Driver{
     
     // 4 Please enter the number of iterations for your fractal
     System.out.print("Enter the number of iterations you would like:");
-    iterations = userInput.next();
+    iterations = Integer.parseInt(userInput.next());
     
     // 5 Please enter a filename for your fractal image
     System.out.print("Enter the filename for your fractal image:");
@@ -57,11 +58,11 @@ public class Driver{
     
     //KochSnowflake
     if(type.equals("kochsnowflake")){
-        new Kochsnowflake(fileName, iterations, backgroundColor, fractalColor);
+        new KochSnowflake(fileName, iterations, backgroundColor, fractalColor);
     }
     
-    Sierpinski Triangle
-    if(type.equals("sierpinski"){
+    //Sierpinski Triangle
+    if(type.equals("sierpinski")){
         new Sierpinski(fileName, iterations, backgroundColor, fractalColor);
     }
      

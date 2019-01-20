@@ -1,16 +1,19 @@
-import java.awt.Color;
-import java.awt.Graphics2D;
+//import java.awt.Color;
+//import java.awt.Graphics2D;
 
 
-public class Sierpinski{
-
-  private int steps;
-  private Color shapeColor;
-
-  public void initialTriangle(){
-
-  }
+public class Sierpinski extends FractalPlane{
 
 
-
+    public Sierpinski(String filename, int iter, String bgcolor, String frcolor){
+        super(filename, iter, bgcolor, frcolor);
+    
+    
+    
+    }
+    
 }
+
+  //private int steps;
+  //private Color shapeColor;
+

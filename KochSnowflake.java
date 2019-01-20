@@ -1,16 +1,36 @@
 import java.awt.image.*;
 import java.awt.Graphics;
 import java.lang.Math;
+import java.awt.Color;
 
 
-public class KochSnowflake{
+public class KochSnowflake extends FractalPlane{
 
-    public KochSnowflake(BufferedImage imageplane, Color fractalColor, int iterations)
+    //private int HEIGHT = getHeight();
+    //private int WIDTH = getWidth();
+    //private Color fractalColor;
+    //private int iterations;
+    //private BufferedImage imagePlane;
+    //private Graphics drawing;
+
+    //KochSnowflake Constructor
+    public KochSnowflake(String filename, int iter, String bgcolor, String frcolor){
+    
+    
+        super(filename, iter, bgcolor, frcolor);
+        paint(drawing);
+        //fractalColor = frColor;
+        //iterations = iter;
+        //drawing = draw;
+        //paint(drawing);
+        save(filename);
+    }
+
 
     public void paint(Graphics drawing){
             
             HEIGHT = HEIGHT - HEIGHT/4;
-            int origin = width/2 - HEIGHT/2;
+            int origin = WIDTH/2 - HEIGHT/2;
             
             drawKoch(origin + 20, HEIGHT - 20,   origin + HEIGHT - 20, HEIGHT - 20, drawing, iterations);
             drawKoch(origin + HEIGHT - 20,HEIGHT - 20, origin + HEIGHT/2,20, drawing, iterations);

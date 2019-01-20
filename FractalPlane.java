@@ -7,30 +7,36 @@ import java.lang.Math;
 
 public class FractalPlane{
 
-  private int HEIGHT = 480;
-  private int WIDTH = 480;
+int HEIGHT = 1600;
+int WIDTH = 1600;
  // private boolean[][] values;
-  private String type;
-  private Color backgroundColor;
-  private Color fractalColor;
-  private BufferedImage imagePlane;
-  private Graphics drawing;
-  private int iterations;
-  private String name;
+String type;
+Color backgroundColor;
+Color fractalColor;
+BufferedImage imagePlane;
+Graphics drawing;
+int iterations;
+String name;
 
 //FractalPlane Constructor
-  public FractalPlane(String type, String filename, int iter, String bgcolor, String frcolor){
+  public FractalPlane(String filename, int iter, String bgcolor, String frcolor){
 
     //this.HEIGHT = HEIGHT;
     //this.WIDTH = WIDTH;
     
     //set fractal type
-    type = type.toLowerCase();
+    //type = type.toLowerCase();
     
     //set image colors
+    
+    setColors(bgcolor, frcolor);
+    
+    /*
     SelectColor c = new SelectColor(); //Select Color class instance
     backgroundColor = c.getColor(bgcolor); //Set background color
     fractalColor = c.getColor(frcolor); //Set fractal color
+    */
+    
     
     iterations = iter; // Set num of iterations
     name = filename; // Set image file name
@@ -42,21 +48,21 @@ public class FractalPlane{
     drawing = imagePlane.getGraphics();
     
     //Set Background Color
-    drawing.setColor(backgroundColor); //  Set drawing color
-    drawing.fillRect(0,0,HEIGHT, WIDTH); // Set color of background
+    //drawing.setColor(backgroundColor); //  Set drawing color
+    //drawing.fillRect(0,0,HEIGHT, WIDTH); // Set color of background
     
     //Fractal type selection
     
-    //KochSnowflake
-    if(type.equals("kochsnowflake"){
-        new KochSnowflake(imagePlane, drawing, fractalColor, iterations);
-        }
+    /*KochSnowflake
+    if(type.equals("kochsnowflake")){
+        new Kochsnowflake(drawing, fractalColor, iterations);
+    }
     
-    //Sierpinski Triangle
+    Sierpinski Triangle
     if(type.equals("sierpinski"){
         new Sierpinski(imagePlane, drawing, fractalColor, iterations);
-        }
-        
+    }
+    */ 
         
     //paint(drawing);
     //drawKoch(0, HEIGHT/2 ,WIDTH, HEIGHT/2, drawing, iterations);
@@ -65,7 +71,7 @@ public class FractalPlane{
     
     
     //Saves drawing to .png file with specified name
-    save(name);
+    //save(name);
   }
   
   /*
@@ -135,7 +141,7 @@ public class FractalPlane{
   */
   
   
-   public void paint(Graphics drawing){
+  /* public void paint(Graphics drawing){
         
         HEIGHT = HEIGHT - HEIGHT/4;
         int origin = WIDTH/2 - HEIGHT/2;
@@ -182,22 +188,19 @@ public class FractalPlane{
             }
         }   
 
-
+    */
   
-  /*
 
-  public int getSize(){
-    return this.size;
+
+  public int getHeight(){
+    return HEIGHT;
   }
 
 
-  public int setSize(int newSize){
-
-    size = newSize;
-    return newSize;
-
+  public int getWidth(){
+    return WIDTH;
   }
-  */
+  
   
   /*sets filename
   String setName(String newName){
@@ -212,14 +215,21 @@ public class FractalPlane{
 
   */
   
+  public void setColors(String bgcolor, String frcolor){
+  
+    //set image colors
+    SelectColor c = new SelectColor(); //Select Color class instance
+    backgroundColor = c.getColor(bgcolor); //Set background color
+    fractalColor = c.getColor(frcolor); //Set fractal color
+  
+  
+  }
   
  //sets BufferedImage background color
-  public void setBackgroundColor(Color c){
+  public void setBackgroundColor(){
     
-    drawing.setColor(c);
+    drawing.setColor(backgroundColor);
     drawing.fillRect(0, 0, WIDTH, HEIGHT);
-    
-    
     
     /*iterates across every pixel
     for(int x = 0; x < size; x++){
