@@ -1,17 +1,18 @@
 //import java.io.*;
 //import java.imageio.*;
 //import java.awt.Color;
+import java.util.Scanner;
 
 public class Driver{
 
   public static void main(String[] args){
 
-   
+   Scanner userInput = new Scanner(System.in);
     
     //Color bgcolor = c.getColor(args[2]);
     //Color frcolor = c.getColor(args[3]);
 
-
+    if(
     
     new FractalPlane(args[0], Integer.parseInt(args[1]), args[2], args[3]);
     
