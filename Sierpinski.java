@@ -33,6 +33,34 @@ public class Sierpinski extends FractalPlane{
     
     }
     
+
+    
+    public void drawSierpinski(Point p1, Point p2, Point p3, Graphics drawing, int iterations){
+    
+        Point midpoint12;
+        Point midpoint23;
+        Point midpoint31;
+        
+        if(iterations == 0){
+        
+            drawing.setColor(fractalColor);
+            drawing.drawLine(p1.x, p1.y, p2.x, p2.y);
+            drawing.drawLine(p2.x, p2.y, p3.x, p3.y);
+            drawing.drawLine(p3.x, p3.y, p1.x, p1.y);
+        
+        }
+        
+        else{
+        
+            midpoint12 = ((p1.x + p2.x) / 2), ((p1.y + p2.y) / 2);
+            midpoint23 = ((p2.x + p3.x) / 2), ((p2.y + p3.y) / 2);
+            midpoint31 = ((p3.x + p1.x) / 2), ((p3.y + p1.y) / 2);
+            
+            drawSierpinski()
+        
+        }
+    
+    }
 }
 
 
