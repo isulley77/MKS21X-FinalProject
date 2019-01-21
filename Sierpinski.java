@@ -58,7 +58,7 @@ public class Sierpinski extends FractalPlane{
             
             drawSierpinski(p1, midpoint12, midpoint31, drawing, iterations - 1);
             drawSierpinski(midpoint12, p2, midpoint23, drawing, iterations - 1);
-            drawSierpinski(midpoint12, p2, midpoint23, drawing, iterations - 1);
+            drawSierpinski(midpoint31, midpoint23, p3, drawing, iterations - 1);
             
         
         }
