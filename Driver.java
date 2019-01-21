@@ -56,6 +56,8 @@ public class Driver{
     System.out.print("Enter the filename for your fractal image: ");
     fileName = userInput.next();
     
+    System.out.println("Your fractal has been generated, check the main directory");
+    
     //KochSnowflake
     if(type.equals("kochsnowflake")){
         new KochSnowflake(fileName, iterations, backgroundColor, fractalColor);
