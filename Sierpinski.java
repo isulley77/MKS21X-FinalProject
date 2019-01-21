@@ -15,7 +15,7 @@ public class Sierpinski extends FractalPlane{
         setColors(bgcolor, frcolor);
         setBackgroundColor();
         
-        paint();
+        paint(drawing);
         save(filename);
     
     
@@ -25,9 +25,9 @@ public class Sierpinski extends FractalPlane{
         
         Point p1 = new Point(WIDTH / 2, 100);
         Point p2 = new Point(100, HEIGHT - 100);
-        Point p3 = new Point(WIDTH - 100, Height - 100);
+        Point p3 = new Point(WIDTH - 100, HEIGHT - 100);
         
-        drawSierpinkski(p1, p2, p3, drawing, iterations);
+        drawSierpinski(p1, p2, p3, drawing, iterations);
         
         //drawing.setColor(fractalColor);
     
@@ -52,11 +52,14 @@ public class Sierpinski extends FractalPlane{
         
         else{
         
-            midpoint12 = ((p1.x + p2.x) / 2), ((p1.y + p2.y) / 2);
-            midpoint23 = ((p2.x + p3.x) / 2), ((p2.y + p3.y) / 2);
-            midpoint31 = ((p3.x + p1.x) / 2), ((p3.y + p1.y) / 2);
+            midpoint12 = new Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
+            midpoint23 = new Point((p2.x + p3.x) / 2, (p2.y + p3.y) / 2);
+            midpoint31 = new Point((p3.x + p1.x) / 2, (p3.y + p1.y) / 2);
             
-            drawSierpinski()
+            drawSierpinski(p1, midpoint12, midpoint31, drawing, iterations - 1);
+            drawSierpinski(midpoint12, p2, midpoint23, drawing, iterations - 1);
+            drawSierpinski(midpoint12, p2, midpoint23, drawing, iterations - 1);
+            
         
         }
     
